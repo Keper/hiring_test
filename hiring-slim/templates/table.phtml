@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <title>The terrible hiring test</title>
+        <link href='//fonts.googleapis.com/css?family=Lato:300' rel='stylesheet' type='text/css'>
+        <style>
+            body {
+                margin: 50px 0 0 0;
+                padding: 0;
+                width: 100%;
+                font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+                #text-align: center;
+                color: #aaa;
+                font-size: 18px;
+            }
+
+            h1 {
+                color: #719e40;
+                letter-spacing: -3px;
+                font-family: 'Lato', sans-serif;
+                font-size: 100px;
+                font-weight: 200;
+                margin-bottom: 0;
+            }
+            h2 {
+              margin-left: 10px;
+            }
+            table, th, td {
+              border: 1px solid black;
+              border-collapse: collapse;
+              margin-left: 10px;
+            }
+            th {
+              color: black;
+            }
+            td {
+              color: black;
+              font-size: 12px;
+            }
+        </style>
+
+    </head>
+    <body>
+        <h2>The wonderful library</h2>
+        <form action="search" method="post">
+        	<input type = "text" name="search">
+        </form>
+        <?php if(stripos($filter,'Show') !== false) : ?>
+				<a href="/adult"><?= $filter ?></a>
+				<?php endif; ?>
+        <?php if(isset($paginator_start)) : ?>
+          <div id="paginator">
+          	<a id="first" class="page" data-type="first" href="javascript:void(0);"><<</a> 
+          	<a id="prev" class="page" data-type="prev"  href="javascript:void(0);">< </a>  
+          	<span id="pag_numbers">
+          		<?php foreach($paginator_start as $num_page) : ?>
+          			<a class="page" href="javascript:void(0);"><?= $num_page; ?></a>
+          		<?php endforeach; ?>
+          		..
+          		<?php foreach($paginator_end as $num_page) : ?>
+          			<a class="page" href="javascript:void(0);"><?= $num_page; ?></a>
+          		<?php endforeach; ?>
+          	</span>
+          	<a id="next" class="page" data-type="next" href="javascript:void(0);">></a> 
+          	<a id="last" class="page" data-type="last" href="javascript:void(0);">>></a>  
+         	</div>
+        <?php else : ?>
+        	<a href="/table">Return to complete table</a>
+        <?php endif; ?>
+       	<div id="table">
+          <table>
+         		<tr>
+          		<th>Title</th>
+          		<th>Author</th>
+          		<th>Category</th>
+          	</tr>
+          	<?php foreach($books as $book) { ?>
+          	<tr>
+          		<td><?= htmlspecialchars($book['title']); ?></td>
+          		<td>
+          			<?php foreach($book['authors'] as $author) : ?>
+          				<?= htmlspecialchars($author); ?></br>
+          			<?php endforeach; ?>
+          		</td>
+          		<td><?= htmlspecialchars($book['desc_category']); ?></td>
+          	</tr>
+          	<?php } ?>
+          </table>
+        </div>
+        <br>
+        <br>
+    </body>
+            <script src="/js/jquery-v1.8.2.min.js" type="text/javascript" language="javascript"></script>
+        <script src="/js/app.js" type="text/javascript" language="javascript"></script>
+</html>
