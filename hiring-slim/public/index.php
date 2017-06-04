@@ -36,38 +36,3 @@ require __DIR__ . '/../src/routes.php';
 // $container->logger->addInfo("Something interesting happened");
 // Run app
 $app->run();
-
-
-// $app->get('/import', function (Request $request, Response $response) {
-//   var_dump('ciao');
-  
-//   $response->getBody()->write(var_export($tickets, true));
-//   return $response;
-// });
-
-
-// $db = AutoDb::init($container->db);
-
-// $sql = "SELECT * FROM category";
-// $data = $db->rowsArray('category', 'id_category = 10',null);
-
-// $table = $db->newRow('category');
-// $table->attr('desc_category','Prova2');
-// $table->attr('flg_xxx',1);
-// $table->attr('desc_category','Prova3');
-// $table->attr('flg_xxx',0);
-// $table->save();
-
-// $table->saveMore($arrayOfAutoRecords);
-
-// var_dump($data[0]->attr('id_category'),$data);
-// var_dump($table);
-/*
-$stmt = $container->db->prepare($sql);
-$stmt->execute();
-$stmt->bind_result($id_category,$desc_category,$flg_xxx);
-
-while($stmt->fetch()) {
-  var_dump($id_category,$desc_category,$flg_xxx);
-}
-*/
